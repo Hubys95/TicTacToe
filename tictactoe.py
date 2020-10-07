@@ -144,3 +144,4 @@ def zmena_hrace():
 
 
 hra()
+
