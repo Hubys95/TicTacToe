@@ -59,6 +59,9 @@ def tah():
     except ValueError:
         print("Prosím, vlož číslo.")
         return zmena_hrace()
+    except IndexError:
+        print("Prosím, vlož číslo v rozmezí od 1 do 9.")
+        return zmena_hrace()
 
     plocha[pozice] = soucasny_hrac
 
@@ -82,10 +85,7 @@ def vyhra():
         vitez = vitez_sloupce
     elif vitez_diagonaly:
         vitez = vitez_diagonaly
-    else:
-        vitez = None
-    return
-
+ 
 
 def kontrola_radku():
     global hra_bezi
@@ -100,7 +100,6 @@ def kontrola_radku():
         return plocha[3]
     elif radek3:
         return plocha[6]
-    return
 
 
 def kontrola_sloupce():
@@ -116,7 +115,6 @@ def kontrola_sloupce():
         return plocha[1]
     elif sloupec3:
         return plocha[2]
-    return
 
 
 def kontrola_diagonaly():
@@ -129,14 +127,12 @@ def kontrola_diagonaly():
         return plocha[0]
     elif diagonala2:
         return plocha[2]
-    return
 
 
 def remiza():
     global hra_bezi
     if not " " in plocha:
         hra_bezi = False
-    return
 
 
 def zmena_hrace():
@@ -145,7 +141,6 @@ def zmena_hrace():
         soucasny_hrac = "o"
     elif soucasny_hrac == "o":
         soucasny_hrac = "x"
-    return
 
 
 hra()
